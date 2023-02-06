@@ -1,0 +1,15 @@
+[Unit]
+Description=Manic Sync Server
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=root
+WorkingDirectory=/www/wwwroot/manic
+ExecStart=/usr/bin/php -S localhost:83 -t /www/wwwroot/manic
+
+[Install]
+WantedBy=multi-user.target
