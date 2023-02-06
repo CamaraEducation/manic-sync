@@ -101,7 +101,11 @@ function config(){
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
         curl_close($ch);
-        file_put_contents('config', $output);
+
+        // if output is not empty write to file
+        if ($output != '') {
+            file_put_contents('config', $output);
+        }
     }
     
 }
